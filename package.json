@@ -1,0 +1,11 @@
+{
+  "name": "dentalkart-csv-project",
+  "version": "1.0.0",
+  "description": "User can download all data in form of csv and upload csv file to all more data in database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
