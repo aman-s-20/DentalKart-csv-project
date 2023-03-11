@@ -19,6 +19,10 @@ studentData.fetchAll = (callback)=> {
     })
 }
 
+studentData.postAllData = (callback)=>{
+    
+}
+
 
 module.exports = studentData;
 
