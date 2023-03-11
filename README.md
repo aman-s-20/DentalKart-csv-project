@@ -34,5 +34,3 @@ $ node index.js
 | POST | /login   | login of user        |
 
 
-- Unit Tests - Due to shortage of time, I couldn't write many unit-test.
-- Login Sessions and Dashboard of Applications
