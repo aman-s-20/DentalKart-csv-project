@@ -2,7 +2,8 @@ const express= require('express');
 const app= express();
 const port = process.env.PORT || '3000'
 const home = require('./routes/home')
-const conn = require('./config');
+const auth = require('./routes/auth');
+// const conn = require('./config');
 const bodyParser = require("body-parser");
 // const errorController = require('./controllers/error');
 const cors = require('cors');
@@ -10,6 +11,14 @@ const multer = require('multer');
 const path = require('path');
 app.use(cors());
 // require('./db/connectDB');
+require("dotenv").config();
+const mysql = require('mysql2')
+const conn = mysql.createConnection({
+  host : process.env.host,
+  user :  process.env.user,
+  password :  process.env.password,
+  database :  process.env.database,
+});
 
 conn.connect((error)=>{
   if(error){
@@ -23,10 +32,11 @@ conn.connect((error)=>{
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use('/',home);
+app.use('/user',auth);
 
 app.listen(port,()=>{
   console.log (`[OK] server started on port  ${port}`);
