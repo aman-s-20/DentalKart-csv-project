@@ -76,11 +76,9 @@ router.get("/download", (req,res)=>{
         console.log(err);
         return res.json(err);
       }
-      // console.log(data);
+
       var sql_data=JSON.parse(JSON.stringify(data));
-    //   console.log(sql_data);
-      // console.log(data[0].name);
-    //   return res.json(data);
+  
   
 
       var file_header = ['Name', 'Roll_no', 'Address','Institute','Course','Email'];
@@ -88,7 +86,6 @@ router.get("/download", (req,res)=>{
       var json_data = new data_exporter({file_header});
 
       var csv_data = json_data.parse(sql_data);
-    //   console.log(csv_data);
 
       res.setHeader("Content-Type", "text/csv");
 
