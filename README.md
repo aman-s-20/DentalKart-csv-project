@@ -16,3 +16,23 @@ $ cd DentalKart-csv-project && npm intsall
 
 # Start application
 $ node index.js
+
+
+## 🔨 API Endpoints
+
+`/`
+| REQUEST METHODS | ENDPOINTS | DESCRIPTION |
+| :-------------- | :-------: | ------------------: |
+| GET | / | Show all detail of student |
+| POST | / | Add new student detail to DB|
+| GET  | /download | download file from DB |
+
+`/user`
+| REQUEST METHODS | ENDPOINTS | DESCRIPTION |
+| :-------------- | :-------: | ------------------: |
+| POST | /register| registration of user |
+| POST | /login   | login of user        |
+
+
+- Unit Tests - Due to shortage of time, I couldn't write many unit-test.
+- Login Sessions and Dashboard of Applications
