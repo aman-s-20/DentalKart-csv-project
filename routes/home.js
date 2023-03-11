@@ -24,11 +24,11 @@ const db = mysql.createConnection({
     password :  process.env.password,
     database :  process.env.database,
   });
-
+// require('../uploads')
 
 let storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, './uploads/');
+        callback(null, './routes/uploads');
     },
     filename: (req, file, callback) => {
         callback(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
@@ -66,7 +66,7 @@ function uploadCsv(uriFile) {
 router.get("/", studentController.getAllDetail);
 router.post("/", upload.single('file'), (req, res) => {
     console.log(req.file.filename);
-    uploadCsv('./uploads/' + req.file.filename)
+    uploadCsv(__dirname + '/uploads/' + req.file.filename)
     res.send('data imported');
 });
 router.get("/download", (req,res)=>{
