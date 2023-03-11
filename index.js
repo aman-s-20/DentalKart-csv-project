@@ -1,25 +1,29 @@
 const express= require('express');
 const app= express();
-const conn = require('./config');
 const port = process.env.PORT || '3000'
 const home = require('./routes/home')
-
-const cors = require('cors');
-app.use(cors());
-
+const conn = require('./config');
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+// const errorController = require('./controllers/error');
+const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+app.use(cors());
+// require('./db/connectDB');
 
-// app.use('/',home);
 conn.connect((error)=>{
-    if(error){
-        console.log(error);
-    }
-    else{
-        console.log("database connected");
-    }
+  if(error){
+    console.log(error);
+  }
+  else{
+    console.log("database connected")
+  }
 });
+
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 app.use('/',home);
